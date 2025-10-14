@@ -1,3 +1,5 @@
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Logo from '../assets/logo.png';
 import Meditation from '../assets/meditation.png';
 import IconAgendamentos from '../assets/icon-agendamentos.png';
@@ -8,17 +10,7 @@ function LandingPage() {
     return (
         <div className="h-screen w-screen bg-[#DFEBF6] flex flex-col">
 
-            {/* Cabeçalho */}
-            <div className="w-full h-[15vh] bg-[#44576D] flex items-center">
-                <div className="flex flex-row items-center text-white gap-2 w-1/2 ml-10">
-                    <img src={Logo} alt="Logo" className="h-10 w-auto" />
-                    <div>Acolher</div>
-                </div>
-                <div className="flex flex-row items-center justify-around text-white gap-2 w-1/2 ml-10">
-                    <p className="cursor-pointer hover:text-gray-300">Sobre</p>
-                    <p className="cursor-pointer hover:text-gray-300">Contato</p>
-                </div>
-            </div>
+            <Header />
 
             {/* Corpo com altura dinâmica */}
             <div className="flex-1 flex flex-col items-center justify-center">
@@ -74,10 +66,7 @@ function LandingPage() {
 
             </div>
 
-            {/* Rodapé fixo com 10% da tela */}
-            <div className="w-full h-[10vh] bg-[#44576D] flex items-center justify-center text-white">
-                <p>© 2024 Acolher. Todos os direitos reservados.</p>
-            </div>
+            <Footer/>
         </div>
     );
 }

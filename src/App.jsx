@@ -5,7 +5,7 @@ import HomePage from './pages/HomePage';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/projeto-acolher">
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
