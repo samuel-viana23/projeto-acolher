@@ -5,6 +5,7 @@ import Meditation from '../assets/meditation.png';
 import IconAgendamentos from '../assets/icon-agendamentos.png';
 import IconSeguranca from '../assets/Lock.png';
 import IconComunicacao from '../assets/Comments.png';
+import { Link } from 'react-router-dom';
 
 function LandingPage() {
     return (
@@ -23,9 +24,11 @@ function LandingPage() {
                         <p className="text-lg mb-6 text-center px-4 text-[#44576D] max-w-[60%]">
                             Sua plataforma para conectar pessoas e oferecer suporte emocional.
                         </p>
-                        <button className="bg-[#44576D] text-white px-6 py-3 rounded hover:bg-gray-700">
+                        <Link to="/login">
+                        <button className="bg-[#44576D] text-white px-6 py-3 rounded hover:bg-gray-700 cursor-pointer transition">
                             Entrar
                         </button>
+                        </Link>
                     </div>
                     {/* IMAGEM*/}
                     <div className='flex-1 flex justify-center items-center'>
