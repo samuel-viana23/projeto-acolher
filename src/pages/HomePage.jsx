@@ -1,4 +1,4 @@
-import Header from '../components/Header';
+import HeaderInterno from '../components/HeaderInterno';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 
@@ -8,17 +8,17 @@ import CalendarIcon from '../assets/Calendar.png';
 import IconAgendamentos from '../assets/icon-agendamentos.png';
 import IconChat from '../assets/Comments.png';
 
+import React, { useState } from 'react';
+import ModalConsulta from '../components/ModalConsulta';
+
 function HomePage() {
+
+  const [modalAberto, setModalAberto] = useState(false);
+  const linkMeet = 'https://meet.google.com/'
+
   return (
     <div className="min-h-screen min-w-screen flex flex-col bg-[#DFEBF6]">
-      {/* Cabeçalho personalizado */}
-      <header className="w-full bg-[#44576D] flex justify-between items-center px-6 py-4">
-        <div className="flex items-center gap-2">
-          <img src={Logo} alt="Logo" className="h-10 w-auto" />
-          <span className="text-lg font-semibold">Acolher</span>
-        </div>
-        <img src={UserIcon} alt="Usuário" className="h-10 w-10 rounded-full" />
-      </header>
+      <HeaderInterno logo={Logo} userIcon={UserIcon} />
 
       {/* Conteúdo principal */}
       <main className="flex-1 px-6 py-10 flex flex-col items-center gap-2 justify-center">
@@ -35,7 +35,10 @@ function HomePage() {
             <h2 className="text-lg font-semibold text-[#44576D] pb-2">Próxima sessão</h2>
             <p className="text-[#44576D] font-medium">Dr. Amanda Barreto</p>
             <p className="text-[#44576D]">17 Setembro - 09:00</p>
-            <button className="bg-[#44576D] text-white py-2 px-4 rounded hover:bg-[#2f3f52] self-start w-full cursor-pointer transition">
+            <button
+              onClick={() => setModalAberto(true)}
+              className="bg-[#44576D] text-white py-2 px-4 rounded hover:bg-[#2f3f52] self-start w-full cursor-pointer transition"
+            >
               Conectar
             </button>
           </div>
@@ -56,11 +59,18 @@ function HomePage() {
             <span className="text-[#44576D] font-semibold">#</span>
           </Link>
 
-          <Link to="/chat" className="flex flex-col items-center bg-white shadow-md rounded-lg p-4 w-[30%] hover:bg-[#f0f4f8] transition">
+          <Link to="/home" className="flex flex-col items-center bg-white shadow-md rounded-lg p-4 w-[30%] hover:bg-[#f0f4f8] transition">
             <img src={IconChat} alt="Chat" className="h-10 w-10 mb-2" />
             <span className="text-[#44576D] font-semibold">Chat</span>
           </Link>
         </section>
+
+        <ModalConsulta
+          isOpen={modalAberto}
+          onClose={() => setModalAberto(false)}
+          meetLink={linkMeet}
+        />
+
       </main>
 
       <Footer />
