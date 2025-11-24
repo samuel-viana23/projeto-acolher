@@ -1,6 +1,5 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Logo from '../assets/logo.png';
 import Meditation from '../assets/meditation.png';
 import IconAgendamentos from '../assets/icon-agendamentos.png';
 import IconSeguranca from '../assets/Lock.png';
