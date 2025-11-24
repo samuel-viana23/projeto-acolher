@@ -1,14 +1,27 @@
-import Logo from '../assets/logo.png';
-import UserIcon from '../assets/Profile.png'; // ou o ícone que estiver usando
+import Logo from "../assets/Logo.png";
+import { useNavigate } from "react-router-dom";
 
 function HeaderInterno() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.clear(); 
+    navigate("/login"); 
+  };
+
+
   return (
     <header className="w-full bg-[#44576D] flex justify-between items-center px-6 py-4">
       <div className="flex items-center gap-2">
         <img src={Logo} alt="Logo" className="h-10 w-auto" />
         <span className="text-lg font-semibold text-white">Acolher</span>
       </div>
-      <img src={UserIcon} alt="Usuário" className="h-10 w-10 rounded-full" />
+      <button
+        onClick={handleLogout}
+        className="text-white hover:text-red-300 cursor-pointer px-4 py-2 rounded-lg transition"
+      >
+        Sair
+      </button>
     </header>
   );
 }
